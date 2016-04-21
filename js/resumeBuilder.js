@@ -1,53 +1,102 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
- */
+*/
 // var awesomeThoughts = "I am Inna and I am awesome!";
 // console.log(awesomeThoughts);
 
 // var funThoughts = awesomeThoughts.replace("awesome", "fun");
 // $("#main").append(funThoughts);
 
-var formattedName = HTMLheaderName.replace("%data%", "Inna Kostiuk");
+// var formattedName = HTMLheaderName.replace("%data%", "Inna Kostiuk");
 
-var role = "Web developer";
-var formattedRole = HTMLheaderRole.replace("%data%", role);
+// var role = "Web developer";
+// var formattedRole = HTMLheaderRole.replace("%data%", role);
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+// $("#header").prepend(formattedRole);
+// $("#header").prepend(formattedName);
+
+var work = {
+	"jobs": [
+	{
+		"employer": "Actier",
+		"title": "Web developer",
+		"location": "Tokyo",
+		"dates": "2014 to present",
+		"description": "Responsible for UI design and features development of SFA system that generates daily sales report from speech recorded on a mobile device"
+	}, {
+		"employer": "Samsung Electronics R&D Center",
+		"title": "SQA Engineer",
+		"location": "Ukraine",
+		"dates": "2011-2013",
+		"description": "Designed and implemented test strategies, test cases, selected the toolset for GUI automation"
+	}, {
+		"employer": "Balville S.A.",
+		"title": "Web Test Engineer",
+		"location": "Ukraine",
+		"dates": "2010-2011",
+		"description": "Wrote test scenarios for Cucumber test engine"
+	}
+	]
+};
+
+var projects = {
+	"projects": [
+	{
+		"title": "かけるくん",
+		"dates": "2015 to present",
+		"description": "SFA application that generates daily sales report from speech recorded on a mobile device",
+		"images": "http://www.kakeru-kun.com"
+	}
+	]
+};
 
 var bio = {
-	"name": formattedName,
-	"role": role,
+	"name": "Inna Kostiuk",
+	"role": "Web developer",
+	"welcomeMessage": "Welcome to the awesome web developer hub!",
 	"contacts": {
 		"mobile": "090 3100 5799",
 		"email": "email: kostiuk.inna@gmail.com",
+		"github": "https://github.com/innakoss",
 		"location": "Tokyo"
 	},
-	"welcomeMessage": "Welcome to the awesome web developer hub!",
 	"skills": [
-		"html", "css", "java", "javascript", "spring", "bootstrap", "sql"
-		],
+	"html", "css", "java", "javascript", "spring", "bootstrap", "sql"
+	],
 	"picture": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/21e/320/3da10f6.jpg"
 };
-
-var work = {
-};
-
-work.postition = "Java developer";
-work.employer = "Actier";
-work.years = "2";
-work.city = "Tokyo";
 
 var education = {
 	"schools": [
 	{
-	"name": "National Univercity of Ukraine 'Kyiv Polythecnic Institute'",
-	"years": "2004-2010",
-	"city": "Kyiv",
-	"major": "Engineer - Electrician",
-	"online-courses": [ "Udacity ' How to use Git and Github'", "Intro to HTML and CSS" ]
+		"name": "National Univercity of Ukraine 'Kyiv Polythecnic Institute'",
+		"location": "Kyiv, Ukraine",
+		"degree": "master",
+		"majors": [ "Engineer - Electrician" ],
+		"dates": "2004-2010",
+		"url": "http://kpi.ua/en/home",
+		"online-courses": [
+		{
+			"title": "Intro to HTML and CSS",
+			"school": "Udacity",
+			"dates": "2015",
+			"url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+		},
+		{
+			"title": "How to Use Git and GitHub",
+			"school": "Udacity",
+			"dates": "2016",
+			"url": "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+		},
+		{
+			"title": "JavaScript Testing",
+			"school": "Udacity",
+			"dates": "2015",
+			"url": "https://www.udacity.com/course/javascript-testing--ud549"
+		}
+		]
 	}
- ]
+	]
 }
 
 
