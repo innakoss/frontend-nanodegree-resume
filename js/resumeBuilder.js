@@ -1,39 +1,32 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
 */
-// var awesomeThoughts = "I am Inna and I am awesome!";
-// console.log(awesomeThoughts);
 
-// var funThoughts = awesomeThoughts.replace("awesome", "fun");
-// $("#main").append(funThoughts);
+var formattedName = HTMLheaderName.replace("%data%", "Inna Kostiuk");
+var formattedRole = HTMLheaderRole.replace("%data%", "Web developer");
 
-// var formattedName = HTMLheaderName.replace("%data%", "Inna Kostiuk");
-
-// var role = "Web developer";
-// var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-// $("#header").prepend(formattedRole);
-// $("#header").prepend(formattedName);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
 
 var work = {
 	"jobs": [
 	{
 		"employer": "Actier",
 		"title": "Web developer",
-		"location": "Tokyo",
+		"location": "Tokyo, Japan",
 		"dates": "2014 to present",
 		"description": "Responsible for UI design and features development of SFA system that generates daily sales report from speech recorded on a mobile device"
 	}, {
 		"employer": "Samsung Electronics R&D Center",
 		"title": "SQA Engineer",
-		"location": "Ukraine",
-		"dates": "2011-2013",
+		"location": "Ukraine, Kyiv",
+		"dates": "2011 - 2013",
 		"description": "Designed and implemented test strategies, test cases, selected the toolset for GUI automation"
 	}, {
 		"employer": "Balville S.A.",
 		"title": "Web Test Engineer",
-		"location": "Ukraine",
-		"dates": "2010-2011",
+		"location": "Ukraine, Kyiv",
+		"dates": "2010 - 2011",
 		"description": "Wrote test scenarios for Cucumber test engine"
 	}
 	]
@@ -73,7 +66,7 @@ var education = {
 		"location": "Kyiv, Ukraine",
 		"degree": "master",
 		"majors": [ "Engineer - Electrician" ],
-		"dates": "2004-2010",
+		"dates": "2004 - 2010",
 		"url": "http://kpi.ua/en/home",
 		"online-courses": [
 		{
@@ -98,6 +91,33 @@ var education = {
 	}
 	]
 }
+
+if(bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+	$("#skills").append(formattedSkills);
+}
+
+// display an employer name and job title
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTittle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTittle;
+
+	$(".work-entry:last").append(formattedEmployerTitle);
+// display location
+	var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+	$(".work-entry:last").append(formattedLocation);
+// display work dates
+	var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	$(".work-entry:last").append(formattedWorkDates);
+// display work description
+	var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	$(".work-entry:last").append(formattedWorkDescription);
+}
+
 
 
 
