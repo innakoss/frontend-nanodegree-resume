@@ -98,25 +98,42 @@ if(bio.skills.length > 0) {
 	$("#skills").append(formattedSkills);
 }
 
-// display an employer name and job title
-for (job in work.jobs) {
-	$("#workExperience").append(HTMLworkStart);
+function displayWork() {
+	// display an employer name and job title
+	for (job in work.jobs) {
+		$("#workExperience").append(HTMLworkStart);
 
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTittle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formattedEmployerTitle = formattedEmployer + formattedTittle;
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedTittle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedEmployerTitle = formattedEmployer + formattedTittle;
 
-	$(".work-entry:last").append(formattedEmployerTitle);
-// display location
-	var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-	$(".work-entry:last").append(formattedLocation);
-// display work dates
-	var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-	$(".work-entry:last").append(formattedWorkDates);
-// display work description
-	var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-	$(".work-entry:last").append(formattedWorkDescription);
+		$(".work-entry:last").append(formattedEmployerTitle);
+		// display location
+		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		$(".work-entry:last").append(formattedLocation);
+		// display work dates
+		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		$(".work-entry:last").append(formattedWorkDates);
+		// display work description
+		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		$(".work-entry:last").append(formattedWorkDescription);
+		}
 }
+displayWork();
+
+// add name internationalization
+var name = $("#name").text();
+console.log(name);
+function inName(name) {
+	var arrayOfNames = name.split(" ");
+	var firstName = arrayOfNames[0];
+	var secondNameCapitalized = arrayOfNames[1].toUpperCase();
+	var internatiolizedName = firstName + ' ' + secondNameCapitalized;
+	return internatiolizedName;
+}
+var internationalizationButton = '<button>internationalize my name</button>'
+$("#main").append(internationalizationButton);
+
 
 
 
