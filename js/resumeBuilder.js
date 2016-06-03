@@ -15,19 +15,19 @@ var work = {
 		"title": "Web developer",
 		"location": "Tokyo, Japan",
 		"dates": "2014 to present",
-		"description": "Responsible for UI design and features development of SFA system that generates daily sales report from speech recorded on a mobile device"
+		"description": "Developing front-end and back-end of web applications"
 	}, {
 		"employer": "Samsung Electronics R&D Center",
 		"title": "SQA Engineer",
 		"location": "Ukraine, Kyiv",
 		"dates": "2011 - 2013",
-		"description": "Designed and implemented test strategies, test cases, selected the toolset for GUI automation"
+		"description": "Monitored, analyzed and tested software during development. Performed system manual and automated testing that assured product quality"
 	}, {
 		"employer": "Balville S.A.",
 		"title": "Web Test Engineer",
 		"location": "Ukraine, Kyiv",
 		"dates": "2010 - 2011",
-		"description": "Wrote test scenarios for Cucumber test engine"
+		"description": "Assured quality of social media site"
 	}
 	]
 };
@@ -37,8 +37,30 @@ var projects = {
 	{
 		"title": "かけるくん",
 		"dates": "2015 to present",
-		"description": "SFA application that generates daily sales report from speech recorded on a mobile device",
-		"images": "http://www.kakeru-kun.com"
+		"description": [
+			"SFA application that generates daily sales report from speech recorded on a mobile device",
+			"Created responsive UI and implemented server-side functionallity for user administration part of application",
+			"Wrote unit tests using Spoke framework",
+			"Implemented client side and server side functionallity for main application"
+		],
+		"image": "http://www.kakeru-kun.com"
+	},
+	{
+		"title": "イーキャリアFA",
+		"dates": "2014 - 2016",
+		"description": [ 
+			"Wrote server-side REST API",
+			"Coded temporal design that was used by team members that accelerated project developement until final design arrived",
+			"Build back-end functionality for employment agency applicatoin"
+		],
+	},
+	{
+		"title": "Data managment system for online advertising company",
+		"dates": "2014 - 2015",
+		"description": [
+			"Implemented server-side functionality",
+			"Coded client side parts of application"
+		]
 	}
 	]
 };
@@ -54,7 +76,7 @@ var bio = {
 		"location": "Tokyo"
 	},
 	"skills": [
-	"html", "css", "java", "javascript", "spring", "bootstrap", "sql"
+	"html", " css ", " java", " javascript", " spring", " bootstrap", " sql"
 	],
 	"picture": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/21e/320/3da10f6.jpg"
 };
@@ -106,7 +128,7 @@ function displayWork() {
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 		var formattedTittle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		var formattedEmployerTitle = formattedEmployer + formattedTittle;
-
+		// display employer title
 		$(".work-entry:last").append(formattedEmployerTitle);
 		// display location
 		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
@@ -121,18 +143,32 @@ function displayWork() {
 }
 displayWork();
 
-// add name internationalization
-var name = $("#name").text();
-console.log(name);
-function inName(name) {
-	var arrayOfNames = name.split(" ");
-	var firstName = arrayOfNames[0];
-	var secondNameCapitalized = arrayOfNames[1].toUpperCase();
-	var internatiolizedName = firstName + ' ' + secondNameCapitalized;
-	return internatiolizedName;
+projects.display = function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+
+		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		console.log(formattedProjectTitle);
+		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+
+		// list bullet points in my project section
+		var descriptionWithNewLine = '';
+		for (singleString in projects.projects[project].description) {
+			var initialValue = projects.projects[project].description[singleString];
+			descriptionWithNewLine += initialValue + '<br/>';
+		}
+		console.log(descriptionWithNewLine);
+		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", descriptionWithNewLine);
+		var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].image);
+
+		$(".project-entry:last").append(formattedProjectTitle);
+		$(".project-entry:last").append(formattedProjectDates);
+		$(".project-entry:last").append(formattedProjectDescription);
+		$(".project-entry:last").append(formattedProjectImage);
+	}
 }
-var internationalizationButton = '<button>internationalize my name</button>'
-$("#main").append(internationalizationButton);
+
+projects.display();
 
 
 
