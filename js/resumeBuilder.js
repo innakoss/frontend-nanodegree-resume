@@ -1,12 +1,24 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
-*/
-
+//** display my name & role **//
 var formattedName = HTMLheaderName.replace("%data%", "Inna Kostiuk");
 var formattedRole = HTMLheaderRole.replace("%data%", "Web developer");
-
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+
+var bio = {
+	"name": "Inna Kostiuk",
+	"role": "Web developer",
+	"contacts": {
+		"mobile": "090 3100 5799",
+		"email": "kostiuk.inna@gmail.com",
+		"github": "https://github.com/innakoss",
+		"location": "Tokyo"
+	},
+	"welcomeMessage": "Welcome to the awesome web developer hub!",
+	"skills": [
+		"HTML", "CSS ", "Java", "JavaScript", "Spring", "Bootstrap", "Sql"
+	],
+	"picture": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/21e/320/3da10f6.jpg"
+};
 
 var work = {
 	"jobs": [
@@ -38,10 +50,10 @@ var projects = {
 		"title": "かけるくん",
 		"dates": "2015 to present",
 		"description": [
-			"SFA application that generates daily sales report from speech recorded on a mobile device",
-			"Created responsive UI and implemented server-side functionallity for user administration part of application",
-			"Wrote unit tests using Spoke framework",
-			"Implemented client side and server side functionallity for main application"
+		"SFA application that generates daily sales report from speech recorded on a mobile device",
+		"Created responsive UI and implemented server-side functionallity for user administration part of application",
+		"Wrote unit tests using Spoke framework",
+		"Implemented client side and server side functionallity for main application"
 		],
 		"image": "http://www.kakeru-kun.com"
 	},
@@ -49,36 +61,20 @@ var projects = {
 		"title": "イーキャリアFA",
 		"dates": "2014 - 2016",
 		"description": [ 
-			"Wrote server-side REST API",
-			"Coded temporal design that was used by team members that accelerated project developement until final design arrived",
-			"Build back-end functionality for employment agency applicatoin"
+		"Wrote server-side REST API",
+		"Coded temporal design that was used by team members that accelerated project developement until final design arrived",
+		"Build back-end functionality for employment agency applicatoin"
 		],
 	},
 	{
 		"title": "Data managment system for online advertising company",
 		"dates": "2014 - 2015",
 		"description": [
-			"Implemented server-side functionality",
-			"Coded client side parts of application"
+		"Implemented server-side functionality",
+		"Coded client side parts of application"
 		]
 	}
 	]
-};
-
-var bio = {
-	"name": "Inna Kostiuk",
-	"role": "Web developer",
-	"welcomeMessage": "Welcome to the awesome web developer hub!",
-	"contacts": {
-		"mobile": "090 3100 5799",
-		"email": "email: kostiuk.inna@gmail.com",
-		"github": "https://github.com/innakoss",
-		"location": "Tokyo"
-	},
-	"skills": [
-	"html", " css ", " java", " javascript", " spring", " bootstrap", " sql"
-	],
-	"picture": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/21e/320/3da10f6.jpg"
 };
 
 var education = {
@@ -86,38 +82,68 @@ var education = {
 	{
 		"name": "National Univercity of Ukraine 'Kyiv Polythecnic Institute'",
 		"location": "Kyiv, Ukraine",
-		"degree": "master",
-		"majors": [ "Engineer - Electrician" ],
-		"dates": "2004 - 2010",
-		"url": "http://kpi.ua/en/home",
-		"online-courses": [
-		{
-			"title": "Intro to HTML and CSS",
-			"school": "Udacity",
-			"dates": "2015",
-			"url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
-		},
-		{
-			"title": "How to Use Git and GitHub",
-			"school": "Udacity",
-			"dates": "2016",
-			"url": "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
-		},
-		{
-			"title": "JavaScript Testing",
-			"school": "Udacity",
-			"dates": "2015",
-			"url": "https://www.udacity.com/course/javascript-testing--ud549"
-		}
-		]
+		"degree": "MA",
+		"majors": "Engineer - Electrician",
+		"dates": "2008 - 2010",
+		"url": "http://kpi.ua/en/home"
+	},
+	{
+		"name": "National Univercity of Ukraine 'Kyiv Polythecnic Institute'",
+		"location": "Kyiv, Ukraine",
+		"degree": "BA",
+		"majors": "Instrument Engineering",
+		"dates": "2004 - 2008",
+		"url": "http://kpi.ua/en/home"
+	}
+	],
+	"online-courses": [
+	{
+		"title": "Intro to HTML and CSS",
+		"school": "Udacity",
+		"dates": "2015",
+		"url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+	},
+	{
+		"title": "How to Use Git and GitHub",
+		"school": "Udacity",
+		"dates": "2016",
+		"url": "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+	},
+	{
+		"title": "JavaScript Testing",
+		"school": "Udacity",
+		"dates": "2015",
+		"url": "https://www.udacity.com/course/javascript-testing--ud549"
 	}
 	]
 }
 
+//** display my contacts section **//
+function displayContact() {
+	var formattedModile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	$("#topContacts").append(formattedModile);
+	$("#topContacts").append(formattedEmail);
+	$("#topContacts").append(formattedGithub);
+	$("#topContacts").append(formattedLocation);
+}
+displayContact();
+
+// ** my resume photo **//
+var formattedPicture = HTMLbioPic.replace("%data%", bio.picture);
+var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedPicture);
+$("#header").append(formattedWelcomeMessage);
+
+
 if(bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
-	var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-	$("#skills").append(formattedSkills);
+	for (skill in bio.skills) {
+		var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
+		$("#skills").append(formattedSkills);
+	}
 }
 
 function displayWork() {
@@ -139,25 +165,26 @@ function displayWork() {
 		// display work description
 		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedWorkDescription);
-		}
+	}
 }
 displayWork();
 
-projects.display = function() {
+function displayProjects() {
 	for (project in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
 
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		console.log(formattedProjectTitle);
+		// console.log(formattedProjectTitle);
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
 
-		// list bullet points in my project section
+		//** list bullet points in my project section
 		var descriptionWithNewLine = '';
 		for (singleString in projects.projects[project].description) {
 			var initialValue = projects.projects[project].description[singleString];
 			descriptionWithNewLine += initialValue + '<br/>';
 		}
-		console.log(descriptionWithNewLine);
+		//**
+		// console.log(descriptionWithNewLine);
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", descriptionWithNewLine);
 		var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].image);
 
@@ -167,8 +194,44 @@ projects.display = function() {
 		$(".project-entry:last").append(formattedProjectImage);
 	}
 }
+displayProjects();
 
-projects.display();
+function displayEducation() {
+	for (school in education.schools) {
+		$("#education").append(HTMLschoolStart);
+
+		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		var formattedSchoolNameAndDegree = formattedSchoolName + formattedSchoolDegree;
+		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+
+		$(".education-entry:last").append(formattedSchoolNameAndDegree);
+		$(".education-entry:last").append(formattedSchoolDates);
+		$(".education-entry:last").append(formattedSchoolLocation);
+		$(".education-entry:last").append(formattedSchoolMajor);
+	}
+}
+displayEducation();
+
+function displayOnlineCourses() {
+	$("#education").append(HTMLonlineClasses);
+	for (course in education["online-courses"]) {
+		$("#education").append(HTMLschoolStart);
+
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education["online-courses"][course].title);
+		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education["online-courses"][course].school);
+		var formattedOnlineTitleAndSchool = formattedOnlineTitle + formattedOnlineSchool;
+		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education["online-courses"][course].dates);
+		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education["online-courses"][course].url);
+
+		$(".education-entry:last").append(formattedOnlineTitleAndSchool);
+		$(".education-entry:last").append(formattedOnlineDates);
+		$(".education-entry:last").append(formattedOnlineURL);
+	}
+}
+displayOnlineCourses();
 
 
 
