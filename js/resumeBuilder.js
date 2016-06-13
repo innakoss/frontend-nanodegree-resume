@@ -31,13 +31,13 @@ var work = {
 	}, {
 		"employer": "Samsung Electronics R&D Center",
 		"title": "SQA Engineer",
-		"location": "Ukraine, Kyiv",
+		"location": "Kyiv, Ukraine",
 		"dates": "2011 - 2013",
 		"description": "Monitored, analyzed and tested software during development. Performed system manual and automated testing that assured product quality"
 	}, {
 		"employer": "Balville S.A.",
 		"title": "Web Test Engineer",
-		"location": "Ukraine, Kyiv",
+		"location": "Kyiv, Ukraine",
 		"dates": "2010 - 2011",
 		"description": "Assured quality of social media site"
 	}
@@ -119,7 +119,7 @@ var education = {
 }
 
 //** display my contacts section **//
-function displayContact() {
+function displayContacts() {
 	var formattedModile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
@@ -129,7 +129,7 @@ function displayContact() {
 	$("#topContacts").append(formattedGithub);
 	$("#topContacts").append(formattedLocation);
 }
-displayContact();
+displayContacts();
 
 // ** my resume photo **//
 var formattedPicture = HTMLbioPic.replace("%data%", bio.picture);
@@ -232,6 +232,14 @@ function displayOnlineCourses() {
 	}
 }
 displayOnlineCourses();
+
+$("#mapDiv").append(googleMap);
+
+// display footer contacts
+var contactsList = $("#topContacts > li");
+console.log(contactsList);
+$("#footerContacts").append(contactsList);
+
 
 
 
