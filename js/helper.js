@@ -194,6 +194,7 @@ function initializeMap() {
   If so, it creates a new map marker for that location.
   */
   function callback(results, status) {
+    console.log(results[0]);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0]);
     }
