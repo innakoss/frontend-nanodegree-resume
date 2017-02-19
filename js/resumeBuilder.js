@@ -1,14 +1,8 @@
-//** display my name & role **//
-var formattedName = HTMLheaderName.replace("%data%", "Inna Kostiuk");
-var formattedRole = HTMLheaderRole.replace("%data%", "Web developer");
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
 var bio = {
 	"name": "Inna Kostiuk",
 	"role": "Web developer",
 	"contacts": {
-		"mobile": "090 3100 5799",
+		"mobile": "070 - 2682 - 5627",
 		"email": "kostiuk.inna@gmail.com",
 		"github": "https://github.com/innakoss",
 		"location": "Tokyo"
@@ -80,7 +74,7 @@ var projects = {
 var education = {
 	"schools": [
 	{
-		"name": "National Univercity of Ukraine 'Kyiv Polythecnic Institute'",
+		"name": "National University of Ukraine 'Kyiv Polytechnic Institute'",
 		"location": "Kyiv, Ukraine",
 		"degree": "MA",
 		"majors": "Engineer - Electrician",
@@ -118,13 +112,19 @@ var education = {
 	]
 }
 
+//** display my name & role **//
+var formattedName = HTMLheaderName.replace("%data%", "Inna Kostiuk");
+var formattedRole = HTMLheaderRole.replace("%data%", "Web developer");
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
 //** display my contacts section **//
 function displayContacts() {
-	var formattedModile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-	$("#topContacts").append(formattedModile);
+	$("#topContacts").append(formattedMobile);
 	$("#topContacts").append(formattedEmail);
 	$("#topContacts").append(formattedGithub);
 	$("#topContacts").append(formattedLocation);
@@ -134,8 +134,8 @@ displayContacts();
 // ** my resume photo **//
 var formattedPicture = HTMLbioPic.replace("%data%", bio.picture);
 var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(formattedPicture);
-$("#header").append(formattedWelcomeMessage);
+$("#header:last").append(formattedPicture);
+$("#header:last").append(formattedWelcomeMessage);
 
 
 if(bio.skills.length > 0) {
@@ -237,7 +237,7 @@ $("#mapDiv").append(googleMap);
 
 // display footer contacts
 var contactsList = $("#topContacts > li");
-console.log(contactsList);
+// console.log(contactsList);
 $("#footerContacts").append(contactsList);
 
 

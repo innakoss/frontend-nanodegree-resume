@@ -92,6 +92,11 @@ a {
   display: block;
 }
 
+.role {
+  background-color: white;
+  margin-left: 77%;
+}
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;
