@@ -93,8 +93,8 @@ a {
 }
 
 .role {
+  display: inline-block;
   background-color: white;
-  margin-left: 77%;
 }
 
 .welcome-message {
@@ -196,6 +196,16 @@ span {
   }
   .welcome-message {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 430px) {
+  #header {
+    position: relative;
+  }
+  .role {
+    position: absolute;
+    right: 5%;
   }
 }
 
