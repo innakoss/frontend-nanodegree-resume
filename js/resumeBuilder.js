@@ -224,7 +224,7 @@ function displayOnlineCourses() {
 		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education["online-courses"][course].school);
 		var formattedOnlineTitleAndSchool = formattedOnlineTitle + formattedOnlineSchool;
 		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education["online-courses"][course].dates);
-		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education["online-courses"][course].url);
+		var formattedOnlineURL = HTMLonlineURL.replace("#", education["online-courses"][course].url).replace("%data%", "See here");
 
 		$(".education-entry:last").append(formattedOnlineTitleAndSchool);
 		$(".education-entry:last").append(formattedOnlineDates);
